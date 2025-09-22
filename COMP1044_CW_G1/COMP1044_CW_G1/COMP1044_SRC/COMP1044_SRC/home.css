@@ -1,0 +1,1009 @@
+/* ===== RESET/BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7; /* Light gray background */
+  color: #333; /* Dark gray text */
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #c0392b; /* Red sidebar */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.sidebar .brand {
+  color: #fff; /* White text */
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.sidebar ul {
+  list-style: none;
+}
+.sidebar ul li {
+  margin: 0.5rem 0;
+}
+.sidebar ul li a {
+  display: block;
+  color: #fff; /* White text */
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #a93226; /* Darker red for hover/active */
+  color: #f7f7f7; /* Slightly lighter text */
+  font-weight: bold;
+}
+.sidebar .logout {
+  margin: 1rem 0;
+  text-align: center;
+}
+.sidebar .logout a {
+  display: inline-block;
+  color: #fff; /* White text */
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #a93226; /* Darker red */
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.sidebar .logout a:hover {
+  background-color: #922b21; /* Even darker red */
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  margin-left: 220px; /* Same as sidebar width */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TOP BAR / HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff; /* White top bar */
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #eee; /* Light gray for search bar */
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.search-wrapper input {
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-left: 5px;
+}
+.search-wrapper input:focus {
+  border-color: #ddd;
+  box-shadow: none;
+  outline: none;
+}
+
+/* ===== DASHBOARD CONTENT ===== */
+main {
+  flex-grow: 1; /* Push footer if needed */
+  padding: 20px;
+}
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.dashboard-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #c0392b; /* Red header text */
+}
+.dashboard-header button {
+  padding: 8px 16px;
+  background-color: #c0392b; /* Red button */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.dashboard-header button:hover {
+  background-color: #a93226; /* Darker red */
+}
+
+/* ===== TABLE STYLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+thead {
+  background-color: #a93226; /* Darker red for table header */
+}
+thead tr th {
+  padding: 12px 15px;
+  text-align: left;
+  color: #fff; /* White text for contrast */
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+tbody tr {
+  background-color: #fdfdfd; /* Light background for rows */
+  transition: background-color 0.3s ease;
+}
+tbody tr:nth-child(even) {
+  background-color: #f7f7f7; /* Alternate row color */
+}
+tbody tr:hover {
+  background-color: #f1f1f1; /* Slightly darker gray on hover */
+}
+tbody tr td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  font-size: 14px;
+}
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== ACTION BUTTONS IN TABLE ===== */
+.btn-edit,
+.btn-delete {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-edit {
+  background-color: #ff8531;
+  color: #fff;
+}
+.btn-edit:hover {
+  background-color: #f96600;
+  transform: scale(1.05); /* Slight zoom effect */
+}
+.btn-delete {
+  background-color: #c0392b; /* Red for delete */
+  color: #fff;
+}
+.btn-delete:hover {
+  background-color: #a93226; /* Darker red */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* ===== BUTTONS ===== */
+button {
+  background-color: #c0392b; /* Red */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+  background-color: #a93226; /* Darker red */
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== SMOOTH SCROLL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== ANIMATIONS ===== */
+.sidebar {
+  animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.dashboard-header {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FORM STYLES ===== */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Dark gray text */
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  font-size: 14px;
+  color: #333; /* Dark gray text */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #c0392b; /* Red border on focus */
+  box-shadow: 0 0 5px rgba(192, 57, 43, 0.5); /* Subtle red glow */
+  outline: none;
+}
+
+.form-button {
+  background-color: #c0392b; /* Red button */
+  color: #fff; /* White text */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+  background-color: #a93226; /* Darker red */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Form container */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Input label */
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Dark gray text */
+}
+
+/* Input field */
+.input-field {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  font-size: 14px;
+  color: #333; /* Dark gray text */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input field focus effect */
+.input-field:focus {
+  border-color: #ddd;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Form button */
+.form-button {
+  background-color: #c0392b; /* Red button */
+  color: #fff; /* White text */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Form button hover effect */
+.form-button:hover {
+  background-color: #a93226; /* Darker red */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Reminder Icon in Header */
+.reminder-icon {
+  position: relative;
+  margin-right: 20px;
+}
+
+.reminder-icon i {
+  font-size: 20px;
+  color: #333;
+}
+
+.reminder-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reminder Container */
+.reminder-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Reminder Item */
+.reminder-item {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid #ccc;
+}
+
+.reminder-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-item.unread {
+  background-color: #f0f7ff;
+  border-left-color: #2196f3;
+}
+
+.reminder-item.read {
+  opacity: 0.7;
+}
+
+/* Reminder Icon */
+.reminder-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  margin-right: 15px;
+}
+
+.reminder-icon i {
+  font-size: 18px;
+  color: #555;
+}
+
+.reminder-item.unread .reminder-icon {
+  background-color: #e3f2fd;
+}
+
+.reminder-item.unread .reminder-icon i {
+  color: #2196f3;
+}
+
+/* Reminder Content */
+.reminder-content {
+  flex: 1;
+}
+
+.reminder-message {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.reminder-time {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Reminder Actions */
+.reminder-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.btn-icon.delete:hover {
+  color: #ff4757;
+}
+
+.btn {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  background-color: #f57c00;
+}
+
+.btn:hover {
+  background-color: #f96600;;
+}
+
+.mark-all-read {
+  background-color: transparent;
+  color: #2196f3;
+  border: 1px solid #2196f3;
+}
+
+.mark-all-read:hover {
+  background-color: #e3f2fd;
+}
+
+/* Empty Reminders */
+.no-reminders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  color: #888;
+  text-align: center;
+}
+
+.no-reminders i {
+  font-size: 60px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+/* Reminder status indicators */
+.status-indicator {
+display: inline-block;
+margin-right: 8px;
+vertical-align: middle;
+}
+
+.status-new {
+width: 10px;
+height: 10px;
+background-color: red;
+border-radius: 50%;
+}
+
+.status-read {
+color: green;
+font-size: 16px;
+font-weight: bold;
+}
+
+/* Reminder prompt styles */
+.reminder-prompt {
+display: none;
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #ffffff;
+border-left: 4px solid #4CAF50;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+padding: 15px;
+z-index: 1000;
+width: 300px;
+border-radius: 4px;
+}
+
+.reminder-prompt h3 {
+margin-top: 0;
+color: #333;
+}
+
+.reminder-prompt-buttons {
+display: flex;
+justify-content: flex-end;
+margin-top: 10px;
+}
+
+.reminder-prompt-buttons button {
+margin-left: 10px;
+padding: 5px 10px;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.btn-view-all {
+background-color: #4CAF50;
+color: white;
+}
+
+.btn-dismiss {
+background-color: #f1f1f1;
+color: #333;
+}
+
+/* Reminder action buttons */
+.action-buttons {
+display: flex;
+gap: 5px;
+}
+
+.btn-delete, 
+.btn-mark-read, 
+.btn-mark-unread {
+padding: 5px 10px;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+font-size: 0.85rem;
+white-space: nowrap;
+}
+
+.btn-delete {
+background-color: #f44336;
+color: white;
+}
+
+.btn-mark-read {
+background-color: #4CAF50;
+color: white;
+}
+
+.btn-mark-unread {
+background-color: #ff9800;
+color: white;
+}
+
+.btn-delete:hover {
+background-color: #d32f2f;
+}
+
+.btn-mark-read:hover {
+background-color: #388e3c;
+}
+
+.btn-mark-unread:hover {
+background-color: #f57c00;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Expandable text cell styles */
+.expandable-cell {
+position: relative;
+}
+
+.expandable-cell .hidden {
+display: none;
+}
+
+.btn-expand {
+background-color: transparent;
+color: #2196F3;
+border: none;
+padding: 2px 5px;
+font-size: 12px;
+cursor: pointer;
+margin-top: 5px;
+text-decoration: underline;
+}
+
+.btn-expand:hover {
+color: #0D47A1;
+background-color: transparent;
+transform: none;
+box-shadow: none;
+}
+
+/* Ensure the button doesn't inherit general button styles */
+.btn-expand:hover,
+.btn-expand:active,
+.btn-expand:focus {
+box-shadow: none;
+transform: none;
+background-color: transparent;
+}
+
+/* Modal styles */
+.modal {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+overflow: auto;
+}
+
+.modal-content {
+position: relative;
+background-color: #fff;
+margin: 10% auto;
+padding: 20px;
+width: 70%;
+max-width: 600px;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+from { opacity: 0; transform: translateY(-30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+position: absolute;
+top: 10px;
+right: 15px;
+color: #aaa;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.close-modal:hover {
+color: #333;
+}
+
+.reminder-detail {
+margin-top: 20px;
+}
+
+.reminder-description {
+margin-top: 15px;
+padding: 15px;
+background-color: #f9f9f9;
+border-radius: 5px;
+border-left: 4px solid #c0392b;
+}
+
+.reminder-row {
+cursor: pointer;
+transition: background-color 0.2s ease;
+}
+
+.reminder-row:hover {
+background-color: #f0f0f0;
+}
+
+.modal-actions {
+margin-top: 20px;
+display: flex;
+gap: 10px;
+justify-content: flex-end;
+}
+
+.description-box {
+max-height: 200px;
+overflow-y: auto;
+padding: 10px;
+background-color: #f9f9f9;
+border-radius: 4px;
+margin-top: 5px;
+word-wrap: break-word;
+}
+
+.reminder-description_modal {
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+.reminder-description_modal h4 {
+margin-bottom: 5px;
+}
+
+#modalReminderDescription {
+margin: 0;
+padding: 0;
+}
+
+/* Add these reminder styles to your existing CSS file */
+
+.reminder-icon {
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.reminder-icon i {
+    font-size: 20px;
+    color: #555;
+}
+
+.reminder-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-section {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.contact-section:last-child {
+  border-bottom: none;
+}
+
+.notes-box {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.btn-view-interactions {
+  background-color: #2196F3;
+  color: white;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-view {
+  background-color: #888;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.logged-in-admin {
+  background-color: #d4edda !important; /* light green background */
+}
+.logged-in-admin td {
+  font-weight: bold;
+}
+
+.error-message {
+  color: #d9534f;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.badge {
+  background-color: #f44336; /* Red background */
+  color: #fff;               /* White text */
+  border-radius: 50%;        /* Circle shape */
+  padding: 2px 7px;
+  font-size: 12px;
+  margin-left: 6px;
+  vertical-align: middle;    /* Align nicely with text */
+}
+
+.reminder-categories {
+  padding: 20px 0;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.reminder-section {
+  flex: 1;
+  min-width: 0; /* Prevent flex item from overflowing */
+}
+
+.reminder-section h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #444;
+  font-size: 18px;
+}
+
+.reminder-section h3 .status-indicator {
+  margin-right: 10px;
+}
+
+.reminder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.reminder-box {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  min-height: 175px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reminder-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.reminder-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.reminder-id {
+  font-weight: bold;
+  color: #555;
+}
+
+.reminder-date {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.reminder-staff {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.reminder-content {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  min-height: 80px;
+  flex-grow: 1;
+}
+
+.reminder-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.no-reminders-message {
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  color: #888;
+}
+
+.reminder-prompt {
+  display: none;
+}
+
+.modal-button-edit {
+  background-color: #ff8531;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+      
+.modal-button-edit:hover {
+  background-color: #f96600;
+}
+      
+.modal-button-view {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+      
+.modal-button-view:hover {
+  background-color: #2980b9;
+}
+
+.form-button {
+  margin-right: 10px;
+}

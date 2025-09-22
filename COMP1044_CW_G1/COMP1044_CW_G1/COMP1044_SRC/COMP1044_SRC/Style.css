@@ -1,0 +1,379 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fefefe;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Hide the scrollbar */
+    background: linear-gradient(135deg, #fefefe, #e9ecef);
+
+}
+.bubbles {
+    display: none;
+    position: relative;
+    display: flex;
+    z-index: -1;
+}
+.background-login {
+    background: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    animation: backgroundLoginAnimation 1s ease-in-out;
+}
+.background-signup {
+    background-color: #00193e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    animation: backgroundSignupAnimation 1s ease-out;
+}
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 10s linear infinite;
+    animation-duration: calc(100s/var(--i));
+    filter: blur(20px);
+}
+.bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+    filter: blur(20px);
+}
+@keyframes animate {
+    0% {
+        transform: translateY(-1vh) scale(0);
+    }
+    100% {
+        transform: translateY(100vh) scale(1);
+    }
+}
+@keyframes backgroundLoginAnimation {
+    0% {
+        background: #00193e;
+    }
+    100% {
+        background: #FFFFFF;
+    }
+}
+@keyframes backgroundSignupAnimation {
+    0% {
+        background: #FFFFFF;
+    }
+    100% {
+        background: #00193e;
+    }
+}
+.login-box h2, .signup-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+.text-box {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+.input-field {
+    width: 80%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: block;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-field:hover {
+    border-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.submit-button {
+    width: 50%;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.submit-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+header {
+    background-color: #fefefe;
+    padding: 15px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+header nav ul li {
+    display: inline;
+}
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+}
+header nav ul li a::after {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #ff0000;
+    transition: width 0.3s ease;
+    padding: 10 px;
+}
+header nav ul li a:hover::after {
+    width: 100%;
+}
+.form-container {
+    width: 500px;
+    height: 480px;
+    position: relative;
+    margin: 200px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.forms-wrapper {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    transform: translateX(0%);
+    position: relative;
+}
+.forms-wrapper.show-signup {
+    transform: translateX(-50%);
+}
+.login-box, .signup-box {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow: hidden;
+}
+.login-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+.signup-box {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    height: 100%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden; 
+}
+#signupPart2 {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+}
+.signup-box .text-box {
+    height: 100%;
+    overflow: hidden;
+    max-height: none; 
+}
+.signup-box .input-field {
+    margin-bottom: 20px;
+    
+}
+.signup-box .text-box {
+    max-height: none; 
+    overflow: hidden; 
+}
+.login-box h1, .login-box h2 {
+    color: #333;
+}
+.signup-box h1, .signup-box h2 {
+    color: #fff;
+}
+.login-box .input-field {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+}
+.signup-box .input-field {
+    border: 1px solid #444;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+.login-box .submit-button {
+    background-color: #000;
+    color: white;
+}
+.signup-box .submit-button {
+    background-color: #fff;
+    color: #000;
+}
+.login-box .toggle-text {
+    color: #333;
+}
+.signup-box .toggle-text {
+    color: #fff;
+}
+.login-box .toggle-link {
+    color: #007bff;
+}
+.signup-box .toggle-link {
+    color: #00bfff;
+}
+.login-bubbles, .signup-bubbles {
+    position: relative;
+    display: flex;
+    z-index: -1;
+}
+.login-bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 10s linear infinite;
+    animation-duration: calc(100s/var(--i));
+    filter: blur(20px);
+}
+.login-bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+.signup-bubbles span {
+    background: #00bfff;
+    box-shadow: 0 0 0 10px rgba(0, 191, 255, 0.27), 0 0 50px #00bfff, 0 0 100px #00bfff;
+    filter: blur(20px);
+}
+.signup-bubbles span:nth-child(even) {
+    background: #ffffff;
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.27), 0 0 50px #ffffff, 0 0 100px #ffffff;
+}
+.login-box .login-bubbles-container,
+.signup-box .signup-bubbles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #d9534f;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Success Message Styling */
+.success-message {
+    color: #5cb85c;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message-box {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
